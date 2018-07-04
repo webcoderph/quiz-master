@@ -13,6 +13,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 #additional gems
+gem 'jquery-rails'
 gem 'haml', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'sass-rails', '~> 5.0'
@@ -25,6 +26,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'rspec-rails'
+  gem 'shoulda-matchers', '~> 3.1'
   gem 'selenium-webdriver'
 end
 

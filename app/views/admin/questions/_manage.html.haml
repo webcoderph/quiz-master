@@ -1,0 +1,22 @@
+%h4 Manage Questions
+- if questions.present?
+  - questions.each do |q|
+    .question-card
+      %div
+        %h4
+          Q: 
+          = q.title
+        %br
+        %small
+          %strong
+            Total Answers: 
+            .badge
+              = q.answers.size  
+            Posted:
+            = time_ago_in_words(q.created_at)
+            ago
+        .pull-right
+          = link_to "Edit", edit_admin_question_path(q)
+          |
+          = link_to "Delete", admin_question_path(q), data: { confirm: "Are you sure?" }, :method => :delete
+        

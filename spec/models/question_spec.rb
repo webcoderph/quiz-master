@@ -5,7 +5,9 @@ RSpec.describe Question, type: :model do
 
   it { should validate_presence_of(:title) } 
 
-  it { should validate_presence_of(:field_type) }
+  it { should validate_presence_of(:answer) }
 
-  it { should have_many(:fields) }
+  it { should validate_uniqueness_of(:title) }
+
+  it { should have_many(:answers) }
 end

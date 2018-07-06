@@ -22,6 +22,8 @@ gem 'dotenv-rails'
 gem 'cocoon'
 gem 'simple_form'
 gem 'devise', '~> 4.4'
+gem 'will_paginate', '~> 3.1'
+gem 'will_paginate-bootstrap'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -1,0 +1,14 @@
+.questionuestion-card
+  %div
+    %h4
+      Q: 
+      = @question.title
+      %br
+    %br
+    %small
+      %strong
+        Posted:
+        = time_ago_in_words(@question.created_at)
+        ago
+  = link_to "Back", :back
+        

@@ -1,11 +1,10 @@
-.box-container
-  .stab
-    %button.tablinks{:onclick => "openTab(event, 'manage')"} Manage Questions
-    %button.tablinks{:onclick => "openTab(event, 'scores')"} View Scores
-  %div#manage.stabcontent
-    = render "admin/questions/manage", questions: @questions&.top_recent
-  %div#scores.stabcontent
-    = render "admin/questions/scores", questions: @questions&.top_scores
+.stab
+  %button.tablinks.active{:onclick => "openTab(event, 'manage')"} Manage Questions
+  %button.tablinks{:onclick => "openTab(event, 'scores')"} View Scores
+%div#manage.stabcontent
+  = render "admin/questions/manage", questions: @questions&.top_recent
+%div#scores.stabcontent
+  = render "admin/questions/scores", questions: @questions&.top_scores
 
 
  

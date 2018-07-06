@@ -1,10 +1,17 @@
 module Admin
   class QuestionsController < ApplicationController
     before_action :set_question, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_user!
+    before_action :check_access
     respond_to :html
 
     def index
-      @questions = Question.all
+      if params[:view].present?
+        @questions = Question.paginate(:page => params[:page], :per_page => 5)
+        render 'all'
+      else
+        @questions = Question.all
+      end
     end
     
     def new
@@ -27,9 +34,9 @@ module Admin
     def edit; end
     
     def update
-      if @question.update(post_params)
+      if @question.update(question_params)
         flash[:success] = "Your question was successfully updated!"
-        redirect_to @question
+        redirect_to [:admin, @question]
       else
         render :edit
       end          
@@ -49,6 +56,10 @@ module Admin
     
     def question_params
       params.require(:question).permit(:title, :answer)
+    end
+    
+    def check_access
+      redirect_to questions_path unless current_user.admin
     end
   end
 end

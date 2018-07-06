@@ -1,0 +1,23 @@
+%h4 Questions
+- @questions.each do |q|
+  .question-card
+    %div
+      %h4
+        Q: 
+        = link_to q.title, admin_question_path(q)
+      %br
+      %small
+        %strong
+          Total Answers: 
+          .badge
+            = q.answers.size  
+          Posted:
+          = time_ago_in_words(q.created_at)
+          ago
+      .pull-right
+        = link_to "Edit", edit_admin_question_path(q)
+        |
+        = link_to "Delete", admin_question_path(q), data: { confirm: "Are you sure?" }, :method => :delete
+
+= will_paginate @questions, renderer: BootstrapPagination::Rails
+  

@@ -24,6 +24,7 @@ gem 'simple_form'
 gem 'devise', '~> 4.4'
 gem 'will_paginate', '~> 3.1'
 gem 'will_paginate-bootstrap'
+gem 'numbers_and_words', '~> 0.10.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -38,6 +39,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry-rails'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

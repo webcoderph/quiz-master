@@ -1,14 +1,24 @@
-.questionuestion-card
-  %div
-    %h4
-      Q: 
-      = @question.title
+- if @question.user_answers.mine(current_user).nil?
+  .questionuestion-card
+    %div
+      %h4
+        Q: 
+        = @question.title
+        %br
+        = render :partial => 'form', :locals => { question: @question }
       %br
-    %br
-    %small
-      %strong
-        Posted:
-        = time_ago_in_words(@question.created_at)
-        ago
-  = link_to "Back", :back
+      %small
+        %strong
+          Posted:
+          = time_ago_in_words(@question.created_at)
+          ago
+    = link_to "Back", :back
+- else
+  %h2 
+    You already answered this question 
+  
+  Please answer a different question.
+  %br
+  = link_to "View Questions", questions_path
+  
         

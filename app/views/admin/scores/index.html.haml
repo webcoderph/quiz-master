@@ -1,15 +1,15 @@
 %h4 View Scores
 %table.table.table-hover
-  - users.each do |user|
+  - @users.each do |user|
     %tr
       %td
         = user.email
       %td
         = user.answers.corrects.size
         out of
-        = questions
+        = Question.active.size
         %strong Questions
-        
-.center-block
-  = link_to "View All", admin_scores_path
+= will_paginate @users, renderer: BootstrapPagination::Rails
+%br
+= link_to "Back", :back
     

@@ -1,24 +1,27 @@
 %h4 Questions
-- @questions.each do |q|
-  .question-card
-    %div
-      %h4
-        Q: 
-        = link_to q.title, question_path(q)
-        %br
-        Status:
-        - if q.user_answer
-          - if q.user_answer.correct
-            Correct
-          - else
-            Wrong
+- if @questions.present?
+  - @questions.each do |q|
+    .question-card
+      %div
+        %h4
+          Q: 
+          = link_to q.title, question_path(q)
+          %br
+          Status:
+          - if q.user_answers.mine(current_user)
+            - if q.user_answers.mine(current_user).correct
+              Correct
+            - else
+              Wrong
         
-      %br
-      %small
-        %strong
-          Posted:
-          = time_ago_in_words(q.created_at)
-          ago
+        %br
+        %small
+          %strong
+            Posted:
+            = time_ago_in_words(q.created_at)
+            ago
 
-= will_paginate @questions, renderer: BootstrapPagination::Rails
+  = will_paginate @questions, renderer: BootstrapPagination::Rails
+- else
+  %h4 No Questions To Display!
   

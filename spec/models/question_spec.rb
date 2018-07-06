@@ -11,5 +11,5 @@ RSpec.describe Question, type: :model do
   
   it { should validate_length_of(:title).is_at_most(50) }
 
-  it { should have_one(:user_answer) }
+  it { should have_many(:user_answers) }
 end

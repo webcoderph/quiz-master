@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
         
   has_many :answers
+  scope :not_admin, -> { where(admin: false) }
 end

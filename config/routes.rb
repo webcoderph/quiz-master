@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'admin/questions#index'
   namespace :admin, defaults: {format: 'html'} do
     resources :questions
+    get 'scores', to: 'scores#index'
     get 'questions/all/:view', to: 'questions#index'
   end
 

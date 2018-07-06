@@ -55,7 +55,7 @@ module Admin
     end
     
     def question_params
-      params.require(:question).permit(:title, :answer)
+      params.require(:question).permit(:title, :answer, :active)
     end
     
     def check_access

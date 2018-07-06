@@ -4,7 +4,7 @@
 %div#manage.stabcontent
   = render "admin/questions/manage", questions: @questions&.top_recent
 %div#scores.stabcontent
-  = render "admin/questions/scores", questions: @questions&.top_scores
+  = render "admin/questions/scores", users: User.not_admin.limit(5), questions: Question.active.size
 
 
  

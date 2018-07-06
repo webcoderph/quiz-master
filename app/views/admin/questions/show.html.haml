@@ -7,11 +7,14 @@
       A:
       = @question.answer
     %br
+    %span Status:
+    #{@question.active ? "Active" : "Not Active"}
+    %br
     %small
       %strong
         Total Answers: 
         .badge
-          = @question.answers.size  
+          = @question.answers_count 
         Posted:
         = time_ago_in_words(@question.created_at)
         ago

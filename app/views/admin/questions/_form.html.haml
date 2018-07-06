@@ -3,6 +3,7 @@
   
   = f.input :title
   = f.input :answer
+  = f.input :active, as: :boolean
   = f.button :submit, class: "btn btn-primary"
   = link_to "Back", [:admin, :questions]
   

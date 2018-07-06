@@ -1,25 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+How to setup Quiz Master
 
-Things you may want to cover:
+Things you need to run:
 
-* Ruby version
+* rails db:setup
 
-* System dependencies
+* rails db:migrate
 
-* Configuration
+* rails db:seed
 
-* Database creation
 
-* Database initialization
+Now you can add start the app server
 
-* How to run the test suite
+run:
+* rails s
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
-# quiz-master # quiz-master
+To get the admin acount, just go to db/seed.rb

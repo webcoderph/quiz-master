@@ -7,5 +7,7 @@ Rails.application.routes.draw do
     get 'questions/all/:view', to: 'questions#index'
   end
 
-  resources :questions
+  resources :questions do
+    resources :answers
+  end
 end
